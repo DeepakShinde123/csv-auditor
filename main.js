@@ -3,7 +3,6 @@
 import { readCSV, writeCSV } from "./lib/io.js";
 import * as v from "./lib/validate.js";
 
-console.log(v.isEmail("hey@gmail.com"));
 
 // Handling CLI Arguments
 import yargs from "yargs/yargs";

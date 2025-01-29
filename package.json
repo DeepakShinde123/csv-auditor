@@ -5,7 +5,7 @@
   "description": "CSV validating tool ",
   "main": "main.js",
   "scripts": {
-    "dev": "node --watch main.js --input=companies.csv --clear=final.csv --report=errors.csv",
+    "dev": "node --watch main.js --input=companies.csv --output=final.csv --report=errors.csv",
     "test": "vitest"
   },
   "bin": {
