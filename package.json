@@ -2,15 +2,18 @@
   "name": "csv-auditor",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "CSV validating tool ",
   "main": "main.js",
   "scripts": {
-    "dev": "node main.js --clean=clean_data.csv --input=./data/file.csv --output=report.json",
+    "dev": "node --watch main.js --input=companies.csv --clear=final.csv --report=errors.csv",
     "test": "vitest"
+  },
+  "bin": {
+    "csv-auditor": "main.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.4.7",
     "papaparse": "^5.5.1",

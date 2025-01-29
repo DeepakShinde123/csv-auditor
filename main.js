@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { readCSV, writeCSV } from "./lib/io.js";
 import * as v from "./lib/validate.js";
 
@@ -18,6 +20,10 @@ function validateAndClean(records) {
     // Validate company name
     if (!v.isCompanyName(record["Company Name"])) {
       recordError.push("Company name is not valid");
+    } else if (companies.has(record["Company Name"])) {
+      recordError.push("Company name is not unique");
+    } else {
+      companies.add(record["Company Name"]);
     }
 
     // Validate linkedin url
@@ -47,7 +53,16 @@ function validateAndClean(records) {
 
 function main() {
   const csvData = readCSV(argv.input);
-  console.log(validateAndClean(csvData.body)[1]);
+  const [clean, errors] = validateAndClean(csvData.body);
+  console.log("Validation rules complete ✅");
+
+  // Generate clean csv
+  writeCSV(argv.output, clean);
+  console.log("Write to clean done ✅");
+
+  // Generate report
+  writeCSV(argv.report, errors);
+  console.log("Generated report successfully! ✅");
 }
 
 main();
