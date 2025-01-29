@@ -1,6 +1,6 @@
 {
   "name": "csv-auditor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "CSV validating tool ",
   "main": "main.js",
